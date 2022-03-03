@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         val bottomSheet = ModalBottomSheet()
 
-        binding.modalBottomSheetButton.setOnClickListener {
+        binding.modalButton.setOnClickListener {
             bottomSheet.show(supportFragmentManager, ModalBottomSheet.TAG)
         }
         binding.toStandardButton.setOnClickListener {
