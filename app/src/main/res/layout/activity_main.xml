@@ -7,27 +7,48 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:hint="아무거나 적어보세요."
-            app:boxBackgroundColor="#00000000"
-            app:endIconMode="clear_text"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginHorizontal="16dp" >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <com.google.android.material.chip.Chip
+                android:id="@+id/textFieldChip"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="0dp"
-                android:paddingEnd="0dp" />
+                android:text="TextField"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/textViewChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Test"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/standardBottomsheetChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bottomsheet"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.chip.ChipGroup>
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/container"
+            android:name="com.example.materialpractice.TextFieldFragment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/chipGroup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            />
+
 
         <Button
             android:id="@+id/modalButton"
@@ -37,7 +58,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/container"/>
 
         <Button
             android:id="@+id/toStandardButton"
